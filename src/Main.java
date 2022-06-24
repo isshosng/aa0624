@@ -1,25 +1,45 @@
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.IOException;
-// BufferedReader는 객체 생성시 생성자의 입력값으로 InputStreamReader의 객체가 필요함
-// InputStreamReader - character / BufferedReader - String
-public class Main {
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String str = br.readLine();
-        // readLine method를 쓸 때 InputStream==null일 경우 오류가 생기므로 예외처리를 함
-        // readLine : String 값으로 개행 문자를 포함하여 읽음
+/*class Main {
+    public static void main(String[] args) {
+        자동차 a자동차1 = new 자동차();
+        자동차 a자동차2 = new 자동차();
+        a자동차1.최고속력 = 280;
+        a자동차2.최고속력 = 210;
 
-        int y = Integer.parseInt(str);
-        // Integer.parseInt(String) : 문자열을 인자값으로 받으면 해당 값을 10진수의 Integer형으로 변환
+        //System.out.println(a자동차1.최고속력);
+    }
+}
+class 자동차 {
+    public int 최고속력;
 
-        if(y%4==0) {
-            if(y%400==0) System.out.println("1");
-            else if(y%100==0) System.out.println("0");
-            else System.out.println("1");
-        }
-        else System.out.println("0");
+    void 달리다() {
+        int 최고속력 = 280;
+        System.out.println("자동차가 최고 속력" + this.최고속력 + "km로 달립니다.");
+    }
+}*/
 
-        // System.out.print((y%4==0)?((y%400==0)?"1":(y%100==0)?"0":"1"):"0");
+class Main {
+    public static void main(String[] args) {
+
+        // 구현시작
+        자동차 a자동차1 = new 자동차();
+        자동차 a자동차2 = new 자동차();
+
+        a자동차1.최고속력 = 230;
+        a자동차2.최고속력 = 210;
+        // 구현끝
+
+        a자동차1.달리다();
+        // 출력 => 자동차가 최고속력 230km로 달립니다.
+
+        a자동차2.달리다();
+        // 출력 => 자동차가 최고속력 210km로 달립니다.
+    }
+}
+
+class 자동차 {
+    int 최고속력;
+
+    void 달리다() {
+        System.out.println("자동차가 최고속력 " + 최고속력 + "km로 달립니다.");
     }
 }
